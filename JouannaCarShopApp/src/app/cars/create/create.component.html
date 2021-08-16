@@ -1,1 +1,71 @@
-<p>create works!</p>
+<div class="row justify-content-center">
+    <div class="col-4">
+        <h1>Add car</h1>
+        <form #newCarForm="ngForm" (ngSubmit)="createCar(newCarForm)">
+
+            <div class="mb-3">
+              <label for="carMake" class="form-label">Car make</label>
+              <input ngModel required #carMakeInput="ngModel" name="make" type="text" class="form-control" id="carMake" aria-describedby="emailHelp">
+            </div>
+            <ng-container *ngIf="carMakeInput.touched && carMakeInput.invalid">
+                <div *ngIf="carMakeInput.errors?.required" style="background-color: crimson;">
+                    Car make is required!
+                </div>  
+            </ng-container>
+
+            <div class="mb-3">
+                <label for="carModel" class="form-label">Car model</label>
+                <input ngModel required #carModelInput="ngModel" name="model" type="text" class="form-control" id="carModel" aria-describedby="emailHelp">
+              </div>
+              <ng-container *ngIf="carModelInput.touched && carModelInput.invalid">
+                  <div *ngIf="carModelInput.errors?.required" style="background-color: crimson;">
+                      Car model is required!
+                  </div>  
+              </ng-container>
+
+              <div class="mb-3">
+                <label for="carYear" class="form-label">Year</label>
+                <input ngModel required #carYearInput="ngModel" name="year" type="text" class="form-control" id="carYear" aria-describedby="emailHelp">
+              </div>
+              <ng-container *ngIf="carYearInput.touched && carYearInput.invalid">
+                  <div *ngIf="carYearInput.errors?.required" style="background-color: crimson;">
+                      Car year is required!
+                  </div>  
+              </ng-container>
+
+              <div class="mb-3">
+                <label for="carPrice" class="form-label">Price</label>
+                <input ngModel required #carPriceInput="ngModel" name="price" type="text" class="form-control" id="carPrice" aria-describedby="emailHelp">
+              </div>
+              <ng-container *ngIf="carPriceInput.touched && carPriceInput.invalid">
+                  <div *ngIf="carPriceInput.errors?.required" style="background-color: crimson;">
+                      Car price is required!
+                  </div>  
+              </ng-container>
+            
+              <div class="mb-3">
+                <label for="carFuelType" class="form-label">Fuel type</label>
+                <input ngModel #carFuelTypeInput="ngModel" name="fuelType" type="text" class="form-control" id="carFuelType" aria-describedby="emailHelp">
+              </div>
+
+              <div class="mb-3">
+                <label for="carHorsePower" class="form-label">Horse power</label>
+                <input ngModel #carHorsePowerInput="ngModel" name="horsePower" type="text" class="form-control" id="carHorsePower" aria-describedby="emailHelp">
+              </div>
+
+              <div class="mb-3">
+                <label for="carColour" class="form-label">Colour</label>
+                <input ngModel #carColourInput="ngModel" name="colour" type="text" class="form-control" id="carColour" aria-describedby="emailHelp">
+              </div>
+
+              <div class="mb-3">
+                <label for="carStore" class="form-label">Store</label>
+                <input ngModel #carStoreInput="ngModel" name="store" type="text" class="form-control" id="carStore" aria-describedby="emailHelp">
+              </div>
+
+            <button type="submit" class="btn btn-primary">Add</button>
+          </form>
+        
+    </div>
+</div>
+

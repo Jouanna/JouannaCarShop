@@ -14,6 +14,7 @@ import { HeaderComponent } from './core/header/header.component';
 import { NotFoundComponent } from './core/not-found/not-found.component';
 import { FormsModule } from '@angular/forms';
 import { UserService } from './users/user.service';
+import { CarService } from './cars/car.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { UserService } from './users/user.service';
     HttpClientModule,
     FormsModule
   ],
-  providers: [UserService],
+  providers: [UserService, CarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

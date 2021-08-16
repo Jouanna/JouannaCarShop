@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ICar } from 'src/app/interfaces/car';
+import { UserService } from 'src/app/users/user.service';
+import { CarService } from '../car.service';
 
 @Component({
   selector: 'app-all',
@@ -7,7 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AllComponent implements OnInit {
 
-  constructor() { }
+  cars: ICar[] | undefined;
+
+  get isLogged(){
+    return this.userService.isLogged;
+  }
+
+  constructor(
+    private userService: UserService,
+    private carService: CarService
+  ) {this.getAllCars();}
+
+  getAllCars(){
+    this.cars = undefined;
+    this.carService.getAllCars().subscribe(x => this.cars = x);
+
+  }
+
 
   ngOnInit(): void {
   }
