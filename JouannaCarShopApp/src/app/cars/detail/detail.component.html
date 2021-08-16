@@ -1,1 +1,108 @@
-<p>detail works!</p>
+<!-- <nav class="navbar fixed-bottom navbar-light bg-light">
+    <a class="navbar-brand" href="#">Fixed bottom</a>
+  </nav> -->
+  <!-- <aside>
+    <div class="mini-navbar-wrap">
+        <div class="logo-wrap">
+            <p class="logo"><ng-container class="logo">Извършване на действия</ng-container></p>
+        </div>
+    </div>
+    <nav>
+        <ul>
+            <li>
+                <a routerLink="/home">Home</a>
+            </li>
+            <li>
+                <a routerLink="/clients">Clients</a>
+            </li>
+            <li>
+                <a routerLink="/new-client">New Client</a>
+            </li>
+        </ul>
+    </nav>
+    
+</aside> -->
+
+
+<div *ngIf="!detail && car" class="row justify-content-center">
+    <h1 class="row justify-content-center">Details</h1>
+    <h4 class="row justify-content-center"> for {{car.Make}} {{car.Model}}</h4>
+    <p class="data"><span class="title">FirstName:</span> <span class="client-value">{{car?.Make}}</span> <span class="title">LastName:</span>
+        <span class="client-value">{{car?.Model}}</span></p>
+
+    <p class="data"><span class="title">EGN:</span> <span class="client-value">{{car?.Year}}</span> <span class="title">Address:</span>
+        <span class="client-value">{{car?.Price}}</span></p>
+    <br>
+    <button class="btn btn-primary detail" (click)="detail=true">Edit car</button>
+    <button routerLink="/cars" class="btn btn-primary detail">Cancel</button>
+</div>
+
+
+<!-- ---------------------------------------------------------------------------------- -->
+
+<div class="row justify-content-center">
+    <div class="col-4" *ngIf="car && detail">
+        <h1>Edit Client</h1>
+        <form #editCar="ngForm" (ngSubmit)="edit(editCar)">
+
+            <div class="mb-4">
+                <label for="exampleInputEmail1" class="form-label">First Name</label>
+                <input ngModel required #firstNameInput="ngModel" name="firstName" type="email"
+                    class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    [ngModel]="car.Make">
+            </div>
+            <!-- <ng-container *ngIf="firstNameInput.touched && firstNameInput.invalid">
+                <div *ngIf="firstNameInput.errors?.required" style="background-color: rgb(255, 133, 133);">First Name is
+                    required!</div>
+                <div *ngIf="firstNameInput.errors?.minlength" style="background-color: rgb(255, 133, 133);">First Name
+                    must be 3 chars minimum</div>
+            </ng-container> -->
+
+            <div class="mb-4">
+                <label for="exampleInputEmail1" class="form-label">Last Name</label>
+                <input ngModel required #lastNameInput="ngModel" name="lastName" type="text"
+                    class="form-control" aria-describedby="lastName" [ngModel]="car.Model">
+            </div>
+            <!-- <ng-container *ngIf="lastNameInput.touched && lastNameInput.invalid">
+                <div *ngIf="lastNameInput.errors?.required" style="background-color: rgb(255, 133, 133);">Last Name is
+                    required!</div>
+                <div *ngIf="lastNameInput.errors?.minlength" style="background-color: rgb(255, 133, 133);">Last Name
+                    must
+                    be 3 chars!</div>
+            </ng-container> -->
+
+            <div class="mb-4">
+                <label for="exampleInputPassword1" class="form-label">EGN</label>
+                <input ngModel required minlength="10" #egnInput="ngModel" name="egn" type="text" class="form-control"
+                    id="exampleInputPassword1" [ngModel]="car.Year">
+            </div>
+            <!-- <ng-container *ngIf="egnInput.touched && egnInput.invalid">
+                <div *ngIf="egnInput.errors?.required" style="background-color: rgb(255, 133, 133);">EGN is
+                    required!</div>
+                <div *ngIf="egnInput.errors?.minlength" style="background-color: rgb(255, 133, 133);">EGN should
+                    be 10 chars!</div>
+            </ng-container> -->
+
+            <div class="mb-4">
+                <label for="address" class="form-label">Address</label>
+                <input ngModel required minlength="3" #AddressInput="ngModel" name="address" type="text"
+                    class="form-control" id="address" [ngModel]="car.Price">
+            </div>
+            <!-- <ng-container *ngIf="AddressInput.touched">
+                <div *ngIf="AddressInput.errors?.required" style="background-color: rgb(255, 133, 133);">Password
+                    confirm
+                    is required!</div>
+                <div *ngIf="AddressInput.errors?.minlength" style="background-color: rgb(255, 133, 133);">Password
+                    should
+                    be 3 chars minimum!</div>
+            </ng-container> -->
+
+            <div>
+                <button type="submit" class="btn btn-primary edit">Edit Client</button>
+                <button routerLink="/cars" class="btn btn-primary edit">Cancel</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+<p *ngIf="!car" class="loading">Loading...</p>
