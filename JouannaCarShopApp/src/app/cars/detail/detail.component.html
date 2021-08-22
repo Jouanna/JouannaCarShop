@@ -1,40 +1,18 @@
-<!-- <nav class="navbar fixed-bottom navbar-light bg-light">
-    <a class="navbar-brand" href="#">Fixed bottom</a>
-  </nav> -->
-  <!-- <aside>
-    <div class="mini-navbar-wrap">
-        <div class="logo-wrap">
-            <p class="logo"><ng-container class="logo">Извършване на действия</ng-container></p>
-        </div>
-    </div>
-    <nav>
-        <ul>
-            <li>
-                <a routerLink="/home">Home</a>
-            </li>
-            <li>
-                <a routerLink="/clients">Clients</a>
-            </li>
-            <li>
-                <a routerLink="/new-client">New Client</a>
-            </li>
-        </ul>
-    </nav>
-    
-</aside> -->
-
 
 <div *ngIf="!detail && car" class="row justify-content-center">
     <h1 class="row justify-content-center">Details</h1>
     <h4 class="row justify-content-center"> for {{car.Make}} {{car.Model}}</h4>
-    <p class="data"><span class="title">FirstName:</span> <span class="client-value">{{car?.Make}}</span> <span class="title">LastName:</span>
-        <span class="client-value">{{car?.Model}}</span></p>
-
-    <p class="data"><span class="title">EGN:</span> <span class="client-value">{{car?.Year}}</span> <span class="title">Address:</span>
-        <span class="client-value">{{car?.Price}}</span></p>
+    <p class="data"><span class="title">Car make:</span> <span class="client-value">{{car?.Make}}</span> </p>
+    <p class="data"><span class="title">Model:</span> <span class="client-value">{{car?.Model}}</span></p>
+    <p class="data"><span class="title">Year:</span> <span class="client-value">{{car?.Year}}</span> </p>
+    <p class="data"> <span class="title">Fuel type:</span> <span class="client-value">{{car?.FuelType}}</span></p>
+    <p class="data"> <span class="title">HorsePower:</span> <span class="client-value">{{car?.HorsePower}}</span></p>
+    <p class="data"> <span class="title">Colour:</span> <span class="client-value">{{car?.Colour}}</span></p>
+    <p class="data"> <span class="title">Price:</span> <span class="client-value">{{car?.Price}}</span></p>
+    <p class="data"> <span class="title">Store:</span> <span class="client-value">{{car?.Store}}</span></p>
     <br>
     <button class="btn btn-primary detail" (click)="detail=true">Edit car</button>
-    <button routerLink="/cars" class="btn btn-primary detail">Cancel</button>
+    <button routerLink="/cars" class="btn btn-primary detail">Back</button>
 </div>
 
 
@@ -42,7 +20,7 @@
 
 <div class="row justify-content-center">
     <div class="col-4" *ngIf="car && detail">
-        <h1>Edit Client</h1>
+        <h1>Edit Car</h1>
         <form #editCar="ngForm" (ngSubmit)="edit(editCar)">
 
             <div class="mb-4">
@@ -99,7 +77,7 @@
 
             <div>
                 <button type="submit" class="btn btn-primary edit">Edit Client</button>
-                <button routerLink="/cars" class="btn btn-primary edit">Cancel</button>
+                <button routerLink="/cars" class="btn btn-primary edit">Back</button>
             </div>
 
         </form>
