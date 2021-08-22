@@ -24,10 +24,9 @@
         <form #editCar="ngForm" (ngSubmit)="edit(editCar)">
 
             <div class="mb-4">
-                <label for="exampleInputEmail1" class="form-label">First Name</label>
-                <input ngModel required #firstNameInput="ngModel" name="firstName" type="email"
-                    class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                    [ngModel]="car.Make">
+                <label for="carMake" class="form-label">Car make</label>
+                <input ngModel #carMakeInput="ngModel" name="carMake" type="text"
+                    class="form-control" id="carMake" aria-describedby="emailHelp" [ngModel]="car.Make">
             </div>
             <!-- <ng-container *ngIf="firstNameInput.touched && firstNameInput.invalid">
                 <div *ngIf="firstNameInput.errors?.required" style="background-color: rgb(255, 133, 133);">First Name is
@@ -37,9 +36,9 @@
             </ng-container> -->
 
             <div class="mb-4">
-                <label for="exampleInputEmail1" class="form-label">Last Name</label>
-                <input ngModel required #lastNameInput="ngModel" name="lastName" type="text"
-                    class="form-control" aria-describedby="lastName" [ngModel]="car.Model">
+                <label for="carModel" class="form-label">Model</label>
+                <input ngModel #carModelInput="ngModel" name="carModel" type="text"
+                    class="form-control" id="carModel" aria-describedby="emailHelp" [ngModel]="car.Model">
             </div>
             <!-- <ng-container *ngIf="lastNameInput.touched && lastNameInput.invalid">
                 <div *ngIf="lastNameInput.errors?.required" style="background-color: rgb(255, 133, 133);">Last Name is
@@ -50,9 +49,9 @@
             </ng-container> -->
 
             <div class="mb-4">
-                <label for="exampleInputPassword1" class="form-label">EGN</label>
-                <input ngModel required minlength="10" #egnInput="ngModel" name="egn" type="text" class="form-control"
-                    id="exampleInputPassword1" [ngModel]="car.Year">
+                <label for="carYear" class="form-label">Year</label>
+                <input ngModel #yearInput="ngModel" name="year" type="text" 
+                class="form-control" id="carYear" aria-describedby="emailHelp" [ngModel]="car.Year">
             </div>
             <!-- <ng-container *ngIf="egnInput.touched && egnInput.invalid">
                 <div *ngIf="egnInput.errors?.required" style="background-color: rgb(255, 133, 133);">EGN is
@@ -62,10 +61,35 @@
             </ng-container> -->
 
             <div class="mb-4">
-                <label for="address" class="form-label">Address</label>
-                <input ngModel required minlength="3" #AddressInput="ngModel" name="address" type="text"
-                    class="form-control" id="address" [ngModel]="car.Price">
+                <label for="carFuelType" class="form-label">FuelType</label>
+                <input ngModel #fuelTypeInput="ngModel" name="fuelType" type="text"
+                    class="form-control" id="carFuelType" aria-describedby="emailHelp" [ngModel]="car.FuelType">
             </div>
+
+            <div class="mb-4">
+                <label for="carHorsePower" class="form-label">HorsePower</label>
+                <input ngModel #horsePowerInput="ngModel" name="horsePower" type="text"
+                    class="form-control" id="carHorsePower" aria-describedby="emailHelp" [ngModel]="car.HorsePower">
+            </div>
+
+            <div class="mb-4">
+                <label for="carColour" class="form-label">Colour</label>
+                <input ngModel #colourInput="ngModel" name="colour" type="text"
+                    class="form-control" id="carColour" aria-describedby="emailHelp" [ngModel]="car.Colour">
+            </div>
+
+            <div class="mb-4">
+                <label for="carPrice" class="form-label">Price</label>
+                <input ngModel #priceInput="ngModel" name="price" type="text"
+                    class="form-control" id="carPrice" aria-describedby="emailHelp" [ngModel]="car.Price">
+            </div>
+
+            <div class="mb-4">
+                <label for="carStore" class="form-label">Store</label>
+                <input ngModel #storeInput="ngModel" name="store" type="text"
+                    class="form-control" id="carStore" aria-describedby="emailHelp" [ngModel]="car.Store">
+            </div>
+
             <!-- <ng-container *ngIf="AddressInput.touched">
                 <div *ngIf="AddressInput.errors?.required" style="background-color: rgb(255, 133, 133);">Password
                     confirm
@@ -76,7 +100,7 @@
             </ng-container> -->
 
             <div>
-                <button type="submit" class="btn btn-primary edit">Edit Client</button>
+                <button type="submit" class="btn btn-primary edit">Edit</button>
                 <button routerLink="/cars" class="btn btn-primary edit">Back</button>
             </div>
 

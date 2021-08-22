@@ -11,7 +11,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr style="background-color:rgb(198, 224, 127);" *ngFor="let car of cars" [routerLink]="['/cars', car.objectId]">
+            <tr *ngFor="let car of cars" [routerLink]="['/cars', car.objectId]">
                 <td>{{car.Make}}</td>
                 <td>{{car.Model}}</td>
                 <td>{{car.Year}}</td>
@@ -19,5 +19,5 @@
             </tr>
         </tbody>
     </table>
-    <div style="background-color:rgb(198, 224, 127);" *ngIf="!cars">Loading...</div>
+    <div *ngIf="!cars">Loading...</div>
 </div>
