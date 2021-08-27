@@ -38,7 +38,7 @@ export class CarService {
   }
 
   editCar(data: {make: string; model: string; year: string; fuelType: string; horsePower: string; colour: string; price: string; store: string;}, id:string){
-    return this.http.post<ICar>(`${apiURL}/data/cars/${id}`, data);
+    return this.http.put<ICar>(`${apiURL}/data/cars/${id}`, data);
   }
 
 }
